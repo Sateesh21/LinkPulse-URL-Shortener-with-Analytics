@@ -4,6 +4,7 @@ const generateShortCode = require("../utils/generateShortCode");
 const urlValidator = require("../validators/url.validator");
 const Analytics = require("../models/analytics.model");
 const validUrlCheck = require("../utils/validUrlCheck");
+const redisClient = require("../config/redis");
 
 //generate shorter code
 const shortenURL = async (req, res) => {
@@ -80,8 +81,21 @@ const redirectURL = async (req, res) => {
   try {
     const { shortCode } = req.params;
 
-    const url = await URL.findOne({ shortCode });
+    // const url = await URL.findOne({ shortCode }); //before redis
+    const cachedUrl = await redisClient.get(shortCode); // redis
 
+    let url;
+
+    //Cache Integration
+    if (cachedUrl) {
+      console.log("From the Cache...");
+      url = await URL.findOne({ shortCode });
+    } else {
+      console.log("Cached Missed");
+      url = await URL.findOne({ shortCode });
+    }
+
+    //find url
     if (!url)
       return res.status(404).json({
         success: false,
@@ -122,6 +136,10 @@ const redirectURL = async (req, res) => {
     }
 
     await url.save();
+
+    if (!cachedUrl) {
+      await redisClient.set(shortCode, url.originalUrl, "EX", 3600);
+    }
 
     //redirect
     return res.redirect(302, url.originalUrl);
