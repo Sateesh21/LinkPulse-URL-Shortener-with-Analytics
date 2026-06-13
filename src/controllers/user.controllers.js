@@ -180,8 +180,8 @@ const changePassword = async (req, res) => {
 const forgotPassword = async (req, res) => {
   try {
     const { email } = req.body;
-    const { error } = forgetPasswordValidation.validate(req.body);
 
+    const { error } = forgetPasswordValidation.validate(req.body);
     if (error)
       return res.status(400).json({
         success: false,
