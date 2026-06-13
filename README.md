@@ -2,7 +2,7 @@
 LinkPulse is a backend service that converts long URLs into unique short codes, tracks every click with detailed analytics, and uses Redis caching for faster redirects. Built entirely as a backend project with full API documentation and Postman collection for testing.
 
 ## Features
-  ## Authentication & Security
+  ### Authentication & Security
   - User registration and login with JWT access and refresh tokens
   - Passwords hashed using bcrypt
   - Change password (protected route)
@@ -10,19 +10,19 @@ LinkPulse is a backend service that converts long URLs into unique short codes, 
   - Logout and account deletion
   - Route protection using custom JWT middleware with httpOnly cookies
 
-  ## URL Shortening
+  ### URL Shortening
   - Converts long URLs into unique short codes using Base62 encoding URL format validation before processing
   - Duplicate URL handling — returns existing short code if the same URL was already shortened by the user
   - 302 redirect for accurate click tracking
   - Optional click limit — URL automatically deactivates after reaching the limit.
 
-  ## Analytics
+  ### Analytics
   - Tracks total clicks, device type, and visitor IP for every redirect
   - Daily click breakdown using MongoDB aggregation pipelines
   - Device type breakdown (mobile, tablet, desktop)
   - Per-URL and combined analytics across all user URLs
 
-  ## Performance
+  ### Performance
   - Redis caching layer for short URL redirects, reducing repeated MongoDB lookups on frequently visited links
 
 ## Tech Stack
@@ -30,10 +30,8 @@ LinkPulse is a backend service that converts long URLs into unique short codes, 
      JWT, bcrypt | Joi | Nodemailer | us-parser.js
 
 ## API Documentation
-### Auth Routes — /api/auth
-   # API Endpoints
 
-## Authentication
+### Authentication — /api/auth
 | Method | Endpoint | Description |
 |----------|------------|--------------|
 | `POST` | `/register` | Register a new user |
@@ -44,7 +42,7 @@ LinkPulse is a backend service that converts long URLs into unique short codes, 
 | `DELETE` | `/deleteuser` | Delete the logged-in user's account |
 | `POST` | `/logout` | Clear authentication cookies and log out the user |
 
-## URL Routes -- /api/url
+### URL Routes -- /api/url
 | Method | Endpoint | Description |
 |----------|------------|--------------|
 | `POST` | `/shortenurl` | Shorten a URL, optionally with a click limit |
@@ -52,15 +50,15 @@ LinkPulse is a backend service that converts long URLs into unique short codes, 
 | `GET` | `/getallurls` | Get all URLs created by the logged in user |
 | `PUT` | `/deactivateurl/:id` | Deactivate a specific URL |
 
-## Analytics Routes — /api/analytics
+### Analytics Routes — /api/analytics
 | Method | Endpoint | Description |
 |----------|------------|--------------|
 | `GET` | `/getanalyticsbycode/:shortCode` | Get total clicks, daily breakdown, and device breakdown for one URL |
 | `GET` | `/getallanalytics` | Get combined analytics across all URLs for the logged in user |
 
-## Setup Instructions
+### Setup Instructions
 1) Clone the Repo
-`git clone [https://github.com/Sateesh21/](https://github.com/Sateesh21/LinkPulse-URL-Shortener-with-Analytics)`
+`git clone https://github.com/Sateesh21/LinkPulse-URL-Shortener-with-Analytics`
 
 2) Install Dependencies
    `npm install`
@@ -79,7 +77,7 @@ LinkPulse is a backend service that converts long URLs into unique short codes, 
    `npm run dev`
 
 ## Testing With Postman
-  A complete Postman collection is included in this repository (linkpulse.postman_collection.json). Import it into Postman to test all endpoints, including authentication flows, URL shortening, redirection, and analytics.
+  A complete Postman collection is included in this repository  `linkpulse.postman_collection.json`. Import it into Postman to test all endpoints, including authentication flows, URL shortening, redirection, and analytics.
 
 -----------------------------------------------------------------------------------------------------------------------
 #### Author
