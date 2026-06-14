@@ -56,6 +56,59 @@ LinkPulse is a backend service that converts long URLs into unique short codes, 
 | `GET` | `/getanalyticsbycode/:shortCode` | Get total clicks, daily breakdown, and device breakdown for one URL |
 | `GET` | `/getallanalytics` | Get combined analytics across all URLs for the logged in user |
 
+## ScreenShorts
+### User APIs
+
+### User Registration
+![Register Page](src/Screenshorts/Users/register.png)
+
+### User Login
+![Login Page](src/Screenshorts/Users/login.png)
+
+### Change Password
+![Change Password](src/Screenshorts/Users/changepassword.png)
+
+### Reset Password
+![Reset Paasword](src/Screenshorts/Users/resetPassword.png)
+
+### Reset Password Link
+![Reset Password Link](src/Screenshorts/Users/resetPasswordLink.png)
+
+### Reset Password Success
+![Reset Password Success](src/Screenshorts/Users/resetSuccess.png)
+
+### Logout User
+![Logout User](src/Screenshorts/Users/logout.png)
+
+### Delete User
+![Delete User](src/Screenshorts/Users/deleteUser.png)
+
+## URLs API
+
+### Short Url Generation
+![Url Generation](src/Screenshorts/URLs/shortUrl.png)
+
+### Redirect From DB
+![Redirect From DB](src/Screenshorts/URLs/RedirectFromDB.png)
+
+### Redirect From Cache
+![Redirect From Cache](src/Screenshorts/URLs/RedirectFromCache.png)
+
+### Get All Urls
+![Get All Urls](src/Screenshorts/URLs/AllUrls.png)
+
+### Deactivate Url
+![All Urls](src/Screenshorts/URLs/DeactivateSpecificURL.png)
+
+## Analytics APIs
+
+### Get Analytics By ShortCode
+![Get all Analytics by Shortcode](src/Screenshorts/Analytics/AnalyticsByShortcode.png)
+
+### Get All Analytics
+![Get All Analytics](src/Screenshorts/Analytics/AllAnalytics.png)
+
+
 ### Setup Instructions
 1) Clone the Repo
 `git clone https://github.com/Sateesh21/LinkPulse-URL-Shortener-with-Analytics`
