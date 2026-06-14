@@ -1,14 +1,14 @@
 // index.js
 const express = require("express");
-const connectDB = require("./config/database.js");
+const connectDB = require("./src/config/database.js");
 const dotenv = require("dotenv");
 dotenv.config();
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const authRouter = require("./routes/user.routes");
-const urlRouter = require("./routes/url.routes");
-const analyticsRouter = require("./routes/analytics.routes");
-const redisClient = require("./config/redis.js");
+const authRouter = require("./src/routes/user.routes.js");
+const urlRouter = require("./src/routes/url.routes.js");
+const analyticsRouter = require("./src/routes/analytics.routes");
+const redisClient = require("./src/config/redis.js");
 
 
 
